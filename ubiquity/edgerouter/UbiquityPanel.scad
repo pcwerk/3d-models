@@ -32,17 +32,40 @@ hull(){
 
 
 //ck();
-usg();
+// usg();
 // vent();
 
+edgeRouter();
+// usg();
+
+module edgeRouter() {
+  // translate([80,5,22.5])rotate([90,180,0]) import("./Ubiquiti-usg-middle.stl");
+  difference() {  
+    import("./Ubiquiti_EdgeRouter_X_Rack_mount_19inch_-_easier_v1.stl");
+    translate([145,-10,0]) cube([5,14,45]);
+  }
+  difference() {
+    translate([145,-10,0]) cube([5,14,45]);
+    translate([145,-5,9.5])
+      rotate([90,0,90])
+      cylinder(h=10,d=4);
+    translate([145,-5,22.5])
+      rotate([90,0,90])
+      cylinder(h=10,d=3.5);
+    translate([145,-5,35.5])
+      rotate([90,0,90])
+      cylinder(h=10,d=4);
+  }
+  translate([135,-5,0]) cube([5,14,45]);
+}
 
 module usg(){
 //USG panel
-import("./Ubiquiti_EdgeRouter_X_Rack_mount_19inch_-_easier_v1.stl");
-translate([1,-50,0])
-support();
-translate([-135,-50,0])
-support();
+import("./Ubiquiti-usg-middle.stl");
+// translate([1,-50,0])
+// support();
+// translate([-135,-50,0])
+// support();
 
 }
 
