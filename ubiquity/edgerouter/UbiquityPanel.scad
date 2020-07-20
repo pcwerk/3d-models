@@ -35,14 +35,26 @@ hull(){
 // usg();
 // vent();
 
-edgeRouter();
+difference() {
+    union () {
+        rotate([90,0,0]) mirror([0,1,0]) edgeRouter();
+        // rotate([90,0,0]) mirror([0,1,0]) edgeRouterEnd();
+    }
+    translate([100,-50,72.5])
+       rotate([90,0,180])
+       cylinder(h=25,d=3.0);
+    translate([50,-50,72.5])
+       rotate([90,0,180])
+       cylinder(h=25,d=3.0);    
+}
+
 // usg();
 
 module edgeRouter() {
   // translate([80,5,22.5])rotate([90,180,0]) import("./Ubiquiti-usg-middle.stl");
   difference() {  
     import("./Ubiquiti_EdgeRouter_X_Rack_mount_19inch_-_easier_v1.stl");
-    translate([145,-10,0]) cube([5,14,45]);
+    // translate([145,-10,0]) cube([5,14,45]);
   }
   difference() {
     translate([145,-10,0]) cube([5,14,45]);
@@ -56,8 +68,15 @@ module edgeRouter() {
       rotate([90,0,90])
       cylinder(h=10,d=4);
   }
-  translate([135,-5,0]) cube([5,14,45]);
+  translate([138.25,0,0]) cube([10,5,45]);
+  translate([20,0,0]) cube([120,5,11.5]);
+  // translate([27,-75,37]) cube([110,80,3.5]);
 }
+
+module edgeRouterEnd() {
+  translate([28,-75,3.5]) cube([90,5,31.5]);
+}
+
 
 module usg(){
 //USG panel
