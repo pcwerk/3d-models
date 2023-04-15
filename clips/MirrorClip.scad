@@ -1,7 +1,7 @@
 include <mcad/boxes.scad>;
 
-ClipThickness = 5;
-MirrorThickness = 4;
+ClipThickness = 6;
+MirrorThickness = 12;
 ScrewDiameter = 4;
 
 difference()
